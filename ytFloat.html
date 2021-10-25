@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 左邊overflow: auto;
+    中間置中display:inline-block or text-align:center */
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: "Mircorsoft JhengHei", sans-serif;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    .head {
+      width: 100%;
+      height: 57px;
+      border: 1px solid rgb(180, 180, 180);
+      position: fixed;
+      margin: auto;
+      z-index: 5;
+      background: white;
+    }
+
+    .menu {
+      width: 20px;
+      height: 20px;
+      float: left;
+      top: auto;
+      top: 18px;
+      left: 25px;
+      background-color: rgb(255, 255, 255);
+      display: inline-block;
+      position: fixed;
+    }
+
+    .youtube {
+      width: 100px;
+      height: 50px;
+      float: left;
+      top: 4px;
+      left: 75px;
+      background: red;
+      display: inline-block;
+      position: relative;
+    }
+
+    .search {
+      width: 580px;
+      height: 40px;
+      float: right;
+      display: inline-block;
+      position: relative;
+      top: 8px;
+      right: 570px;
+      border: 1px solid rgb(180, 180, 180);
+      border-radius: 3px;
+    }
+
+    .search-input {
+      text-align: left;
+      padding: 8px 6px;
+      font-size: 16px;
+      color: rgb(139, 139, 139);
+    }
+
+    .kagami {
+      width: 65px;
+      height: 40px;
+      float: right;
+      display: inline-block;
+      position: relative;
+      top: 8px;
+      right: -70px;
+      border: 1px solid rgb(180, 180, 180);
+      background-color: rgb(240, 240, 240);
+      border-radius: 3px;
+    }
+
+    .kagami img {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 25%;
+      left: 35%;
+    }
+
+    .mic {
+      width: 40px;
+      height: 40px;
+      float: right;
+      display: inline-block;
+      position: relative;
+      top: 8px;
+      right: -190px;
+      border-radius: 50%;
+      background-color: rgb(240, 240, 240);
+    }
+
+    .mic img {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 25%;
+      left: 25%;
+    }
+
+    .login {
+      width: 80px;
+      height: 40px;
+      float: right;
+      display: inline-block;
+      position: relative;
+      top: 8px;
+      right: 25px;
+      border-radius: 3px;
+      border: 1px solid rgb(75, 136, 177);
+      background-color: white;
+    }
+
+    .login img {
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      top: 10%;
+      left: 10%;
+    }
+
+    .dot {
+      width: 40px;
+      height: 40px;
+      float: right;
+      display: inline-block;
+      position: relative;
+      top: 8px;
+      right: 40px;
+      border-radius: 50%;
+      background-color: rgb(250, 250, 250);
+    }
+
+    .dot img {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 20%;
+      left: 25%;
+    }
+
+    .cube {
+      width: 40px;
+      height: 40px;
+      float: right;
+      display: inline-block;
+      position: relative;
+      top: 8px;
+      right: 60px;
+      border-radius: 50%;
+      background-color: rgb(250, 250, 250);
+    }
+
+    .cube img {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 23%;
+      left: 25%;
+    }
+
+    .select-box {
+      width: 87%;
+      height: 50px;
+      border: 1px solid rgb(202, 202, 202);
+      position: fixed;
+      float: right;
+      right: 0;
+      top: 55px;
+      z-index: 5;
+      background: white;
+    }
+
+    .select-bar {
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      left: 13%;
+    }
+
+    .select-bottom {
+      width: auto;
+      height: 35px;
+      background-color: rgb(224, 224, 224);
+      border-radius: 30px;
+      border: 1px solid rgb(170, 170, 170);
+      display: inline-block;
+      text-align: center;
+      padding: 5px 1rem;
+      margin: 5px;
+      transition: 0.2s;
+    }
+
+    .select-bottom:hover {
+      background: black;
+      color: white;
+    }
+
+    .ad {
+      width: 87%;
+      height: 270px;
+      background: black;
+      float: right;
+      position: absolute;
+      right: 0px;
+      top: 150px;
+    }
+
+    .ytm {
+      width: 300px;
+      height: 50px;
+      position: relative;
+      color: white;
+      margin: 10px 10px;
+      padding: 10px 7px;
+      left: 10px;
+      top: 15px;
+    }
+
+    .ytm img {
+      width: 50px;
+      display: inline-block;
+    }
+
+    .ytm p {
+      position: absolute;
+      top: 15%;
+      left: 20%;
+      font-size: 28px;
+
+    }
+
+    .ytmp {
+      background: transparent;
+      width: 340px;
+      height: 100px;
+      position: absolute;
+      color: white;
+      font-size: 26px;
+      margin: 10px 10px;
+      padding: 10px 7px;
+      left: 10px;
+      top: 45px;
+    }
+
+    .subscribe {
+      background: transparent;
+      width: 100px;
+      height: 50px;
+      position: absolute;
+      color: white;
+      border: 2px solid white;
+      border-radius: 3px;
+      font-size: 18px;
+      margin: 10px 10px;
+      padding: 12px 10px;
+      left: 10px;
+      bottom: 15px;
+    }
+
+    .batsu {
+      background: gray;
+      width: 25px;
+      height: 25px;
+      position: relative;
+      float: right;
+      right: 1%;
+      top: -20%;
+    }
+
+    .batsu p {
+      position: absolute;
+      top: 15%;
+      left: 25%;
+      color: rgb(30, 30, 30);
+    }
+
+    .play-border {
+      width: 87%;
+      height: 680px;
+      background: rgb(240, 240, 240);
+      position: absolute;
+      float: right;
+      right: 0;
+      top: 420px;
+      display: inline-block;
+    }
+
+    .play-border1 {
+      width: 87%;
+      height: 680px;
+      background: rgb(240, 240, 240);
+      position: absolute;
+      float: right;
+      right: 0;
+      top: 1100px;
+      display: inline-block;
+
+    }
+
+    .float-video {
+      position: relative;
+      float: left;
+      display: inline-block;
+      margin: 30px;
+      margin-left: 30px;
+    }
+
+    .video-box {
+      width: 340px;
+      height: 70px;
+      position: relative;
+    }
+
+    .video-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: black;
+      position: absolute;
+      top: 8px;
+      left: 9px;
+    }
+
+    .video-title {
+      width: 280px;
+      height: 50px;
+      position: absolute;
+      right: 0;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .video-text {
+      width: 280px;
+      height: 10px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 14px;
+      color: rgb(80, 80, 80);
+      padding-top: 0;
+    }
+
+    .hr-box {
+      width: 100%;
+      height: 20px;
+      background: red;
+      position: relative;
+      top: 1100px;
+      right: 0;
+    }
+
+    .hr {
+      width: 100%;
+      height: 3px;
+      background: rgb(199, 199, 199);
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+    .menu-list {
+      height: 100%;
+      width: 13%;
+      background: rgb(255, 255, 255);
+      position: fixed;
+      top: 57px;
+      left: 0;
+      z-index: 2;
+      overflow: auto;
+    }
+
+    .menu-b1 {
+      position: relative;
+      border: 1px solid rgb(255, 255, 255);
+      width: 90%;
+      height: 150px;
+    }
+
+    .menu-b1 img {
+      width: 20px;
+      margin: 0px 20px;
+      float: left;
+    }
+
+    .menu-b1 li {
+      margin: 20px;
+      margin-left: 0px;
+    }
+
+    .menu-b2 {
+      position: relative;
+      border: 1px solid rgb(255, 255, 255);
+      width: 90%;
+      height: 100px;
+    }
+
+    .menu-b2 img {
+      width: 20px;
+      margin: 0px 20px;
+      float: left;
+    }
+
+    .menu-b2 li {
+      margin: 20px;
+      margin-left: 0px;
+    }
+
+    .menu-b3 {
+      position: relative;
+      border: 1px solid rgb(255, 255, 255);
+      width: 90%;
+      height: 150px;
+    }
+
+    .menu-b3 img {
+      width: 30px;
+      margin: 5px 10px;
+      float: left;
+    }
+
+    .menu-b3 p {
+      margin: 20px;
+      margin-left: 15px;
+      font-size: 14px;
+    }
+
+    .login-box {
+      width: 100px;
+      height: 40px;
+      border: 1px solid rgb(75, 136, 177);
+      background-color: white;
+      color: rgb(75, 136, 177);
+      position: relative;
+      bottom: 10px;
+      left: 10px;
+    }
+
+    .login-text {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 8px;
+      right: 0;
+    }
+
+    .menu-b4 {
+      position: relative;
+      border: 1px solid rgb(255, 255, 255);
+      width: 90%;
+      height: 350px;
+    }
+
+    .menu-b4 li {
+      margin: 20px;
+      margin-left: 0px;
+    }
+
+    .menu-b4 img {
+      width: 20px;
+      margin: 0px 20px;
+      float: left;
+    }
+
+    .menu-b5 {
+      position: relative;
+      border: 1px solid rgb(255, 255, 255);
+      width: 90%;
+      height: 50px;
+    }
+
+    .menu-b5 li {
+      margin: 20px;
+      margin-left: 0px;
+    }
+
+    .menu-b5 img {
+      width: 20px;
+      margin: 0px 20px;
+      float: left;
+    }
+
+    .menu-b6 {
+      position: relative;
+      border: 1px solid rgb(255, 255, 255);
+      width: 95%;
+      height: 130px;
+    }
+
+    .menu-b6 li {
+      margin: 20px;
+      margin-left: 0px;
+    }
+
+    .menu-b6 img {
+      width: 20px;
+      margin: 0px 20px;
+      float: left;
+    }
+
+    .menu-b7 {
+      position: relative;
+      border: 1px solid rgb(255, 255, 255);
+      width: 233px;
+      height: 200px;
+    }
+
+    .menu-b7 li {
+      margin: 20px;
+      margin-left: 0px;
+    }
+
+    .menu-b7 img {
+      width: 20px;
+      margin: 0px 20px;
+      float: left;
+    }
+
+    .menu-b8 {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    .menu-b9 {
+      position: relative;
+      width: 100%;
+      height: 50px;
+      font-size: 14px;
+      margin-left: 20px;
+    }
+
+    .menu-b10 {
+      position: relative;
+      width: 100%;
+      height: 80px;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="head">
+    <img class="menu" src="https://cdn-icons-png.flaticon.com/512/545/545705.png">
+    <img class="youtube" src="https://p2.bahamut.com.tw/B/2KU/16/b93da40e5bc05d0f96ad9560aa1847g5.PNG">
+    <div class="login">
+      <img src="https://cdn-icons-png.flaticon.com/512/5087/5087592.png">
+      <p style="color:rgb(75, 136, 177); position: absolute; top: 20%; left: 45%;">登入</p>
+    </div>
+
+    <div class="dot">
+      <img src="https://cdn-icons-png.flaticon.com/512/2089/2089793.png">
+    </div>
+
+    <div class="cube">
+      <img src="https://cdn-icons-png.flaticon.com/512/159/159704.png">
+    </div>
+
+    <div class="search">
+      <p class="search-input">搜尋</p>
+    </div>
+
+    <div class="kagami">
+      <img src="https://cdn-icons-png.flaticon.com/512/622/622605.png">
+    </div>
+
+    <div class="mic">
+      <img src="https://cdn-icons-png.flaticon.com/512/1251/1251671.png">
+    </div>
+  </div>
+  <div class="select-box">
+    <div class="select-bar">
+      <label class="select-bottom">全部</label>
+      <label class="select-bottom">音樂</label>
+      <label class="select-bottom">直播</label>
+      <label class="select-bottom">動畫</label>
+      <label class="select-bottom">饒舌</label>
+      <label class="select-bottom">觀光</label>
+      <label class="select-bottom">手工藝</label>
+      <label class="select-bottom">美容訣竅</label>
+      <label class="select-bottom">動作冒險遊戲</label>
+      <label class="select-bottom">最新上傳</label>
+    </div>
+  </div>
+  <div class="ad">
+    <div class="ytm"><img src="./icon/yticon.png">
+      <p>YoutubeMusic</p>
+    </div>
+    <div class="ytmp">探索專屬你獨特風格的音樂</div>
+    <div class="subscribe">立即訂閱</div>
+    <div class="batsu">
+      <p>X</p>
+    </div>
+  </div>
+
+  <div class="play-border">
+
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/TgkRuiHTGrg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCmUnZEuUkFaHPU6ij6tgtPsYYoWQ">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/fA5TRFM8sooJTs1D0-Ru4liqyiJ9fOiplhhzCC_gpU7ScZBBizbCbVsDUNyCOGVJP-DYkXtW=s68-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">【歌ってみた】好きだから。 - Covered by 獅子神レオナ/ 【ユイカ】</div>
+        <div class="video-text">獅子神レオナ/レオナちゃんねる <br>
+          觀看次數：4.5萬次
+          3 天前</div>
+      </div>
+    </div>
+
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/keYj7B2Anik/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAeO5nHvuCP_ptxGQjBMD0mhaI95A">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLSKPxkQqJduCJk6C3R0Ssu0RI2je5dNKBLPNeUNuQ=s68-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title"> 「KING / Kanaria」をアレンジしてベース弾いてみた / ふぁみ。（Bass Cover）》</div>
+        <div class="video-text">Fami 。 <br>
+          觀看次數：219萬次 1 年前</div>
+      </div>
+    </div>
+
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/-s8wvEjjngw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCo-8A41omW6Vkir7Ybm0fRF2g3Ug">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLQj0yO8s4AoImnOc5UFUAnpWsHTLVM6jPO5u4q0=s88-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">2021 年 ヒット曲 ランキング ♫ 日本の歌 人気 2021 日本の音楽 邦楽...</div>
+        <div class="video-text">Hits Music <br>
+          觀看次數：15萬次
+          4 週前</div>
+      </div>
+    </div>
+
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/vhmFj1owmuk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDhcugGkU21bnr2NKUQSmC3jLyMkA">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLSAm13gTESsu39zgJ1TYb649BiGqYa_XCv5C6Lu=s68-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">Valkyrie「今宵月の館にて」 / 戌亥とこ × 星街すいせい(Cover)</div>
+        <div class="video-text">Suisei Channel <br>
+          觀看次數：463萬次
+          11 個月前</div>
+      </div>
+    </div>
+
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/biQ-fXYJgrM/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAc0AU2GKWDPW2mMruWhkryBqtQ0A">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLTiv6PJoH0O-iIHJLnrXAnsymOg1oJ8CGU3GHb7ZA=s68-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">Mabinogi BGM - Gairech Hill(High Quality)</div>
+        <div class="video-text">당매당매 <br>
+          觀看次數：3.3萬次
+          2 年前</div>
+      </div>
+    </div>
+
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/9Q3_fB1LqV0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAoOOAm7-F5ia95-RXcroxK2R2V8w">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/YVA_IiA_SqiRnGEvDQTfcJ4wGkk8lAefaM2oswMzBBSKf3XiHkjQsg8IZyBrBwJ0Biw2RhA-S3I=s88-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">Final Fantasy Guitar Collection | Classical Guitar | John Oeth</div>
+        <div class="video-text">John Oeth Guitar <br>
+          觀看次數：77萬次
+          11 個月前</div>
+      </div>
+    </div>
+
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/jZDdV6wM0Ns/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAeuHcISg7_LR2dZPYcfAvWvUk8vw">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLSRcLMJInFC9u5FA12R0BCfC5qeMlWw-j4pIznKMA=s68-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">I had to do it</div>
+        <div class="video-text">Davie504 <br>
+          觀看次數：46萬次
+          2 天前</div>
+      </div>
+    </div>
+
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/NK6Elz5MrqQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDUc8r6cXWVemiL1BcmGbdlshnx-g">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/0MLL-S2KKu4PlhedunMhvg4VPJGm6Fpx2C4QV2PWJvkcG1eA6XqUYULUZGqBF2M4iNY7FxBt=s88-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">Re:Hello world / 律可【オリジナルMV】</div>
+        <div class="video-text">Rikka ch.律可 <br>
+          觀看次數：39萬次
+          1 年前</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hr-box">
+    <div class="hr"></div>
+  </div>
+
+  <div class="play-border1">
+
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/Q54jE2K_OQ0/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBpeKvm6h1E4rnYD_cy474FZf29Mg">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLT76dESvTJyh4_BMwqBAkkhaW7I6Dir9-U0S9Pn3Q=s68-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title"> 恋するフォーチュンクッキー／AKB48（Cover）</div>
+        <div class="video-text">Goose house <br>
+          觀看次數：1852萬次
+          8 年前</div>
+      </div>
+    </div>
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/MXlDpB8b9Pk/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDurRlSZRXOUzNDOuUHLjMshfIXWg">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLT7mSxvz7u9pK3QT9frpHzobEf9sGb1zErf5nCZ=s88-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">Tobias Rauscher - Memories (Original)</div>
+        <div class="video-text">Tobias Rauscher <br>
+          觀看次數：530萬次
+          9 年前</div>
+      </div>
+    </div>
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/vIoDhvW6Xoc/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAFgwQD2-RBwMJBpojTGiX6xbs6FQ">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLSQ91St1vDqvMjLNUjkodDIpOOgZ70KdIePYKiV=s68-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">S(mile)ING! Acoustic Arrange</div>
+        <div class="video-text">atelierchicken <br>
+          觀看次數：4萬次
+          4 年前</div>
+      </div>
+    </div>
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/2fngvQS_PmQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCIUAj1jnnbdJbqEgRO5GMvLY-X9Q">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLSLNO13_yGrphmKli1rGWiEStrWCltr5dCJSzl7rA=s68-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">Ed Sheeran - I See Fire (Music Video)</div>
+        <div class="video-text">CLS Videos <br>
+          觀看次數：3.8億次
+          7 年前</div>
+      </div>
+    </div>
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/twKsU1Qv4k8/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAEt5H42V9oSsm3PrfIKvyA-V4mBw">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLTe-xrlTfoecbBGsaDFh5dxMdHWzX6EIZeqnJqi=s68-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">Whiplash Final Scene - Andrew Neyman's Performance</div>
+        <div class="video-text">Awais Irfan <br>
+          觀看次數：1387萬次
+          6 年前</div>
+      </div>
+    </div>
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/n-Eb4xQ1dnw/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAcF9qwizjqo5CJWjPi8xqw_ql5MQ">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLSLO0mgGKUvH7Kt8cSmwKSxKygXA64jCyH5GqG6rg=s68-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">Dark Souls 3 All Boss Theme Songs OST (+DLC)</div>
+        <div class="video-text">Liberated Guardian <br>
+          觀看次數：122萬次
+          2 年前</div>
+      </div>
+    </div>
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/AiIbxw4Oask/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBnomkh7zy_NdzxxQ7G7kPFyBmpNQ">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLSLik8y32vdVszRl2tIBYZY2iq7_-hxH77HnOD0Fw=s68-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">
+          「Arrietty's Song」ガットギターで弾いてみた【借りぐらしのアリエッティ】...</div>
+        <div class="video-text">Osamuraisan <br>
+          觀看次數：5175次
+          1 天前</div>
+      </div>
+    </div>
+    <div class="float-video"><img style="width: 340px;"
+        src="https://i.ytimg.com/vi/vQHVGXdcqEQ/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCDT0bcCnfvPV3kAwS0HycBulsLmg">
+      <div class="video-box">
+        <div class="video-icon"><img style="width: 40px; border-radius: 50%;"
+            src="https://yt3.ggpht.com/ytc/AKedOLSAm13gTESsu39zgJ1TYb649BiGqYa_XCv5C6Lu=s68-c-k-c0x00ffffff-no-rj">
+        </div>
+        <div class="video-title">NEXT COLOR PLANET / 星街すいせい(official)</div>
+        <div class="video-text">Suisei Channel <br>
+          觀看次數：1124萬次
+          1 年前</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-list">
+    <ul class="menu-b1">
+      <li><img src="https://cdn-icons-png.flaticon.com/512/69/69962.png">首頁</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/633/633839.png">探索</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/907/907837.png">訂閱內容</li>
+      <hr>
+    </ul>
+
+    <ul class="menu-b2">
+      <li><img src="https://cdn-icons-png.flaticon.com/512/565/565266.png">媒體庫</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/992/992700.png">觀看記錄</li>
+      <hr>
+    </ul>
+
+    <div class="menu-b3">
+      <p>登入帳戶即可對影片表示喜歡、發布留言及訂閱頻道。</p>
+      <div class="login-box"><img src="https://cdn-icons-png.flaticon.com/512/5087/5087592.png">
+        <div class="login-text">登入</div>
+      </div>
+      <br>
+      <hr>
+    </div>
+
+    <ul class="menu-b4">
+      <li style="color: rgb(100,100,100); font-weight: bold; text-align: center;">YOUTUBE精選</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/876/876817.png">音樂</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/3112/3112813.png">體育</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/686/686589.png">遊戲</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/860/860334.png">電影</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/2983/2983803.png">新聞</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/2406/2406849.png">直播</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/1687/1687626.png">360度影片</li>
+      <hr>
+    </ul>
+
+    <div class="menu-b5">
+      <li><img src="https://cdn-icons-png.flaticon.com/512/992/992651.png">瀏覽頻道</li>
+      <hr>
+    </div>
+
+    <div class="menu-b6">
+      <li style="color: rgb(100,100,100); font-weight: bold; text-align: center;">更多 YOUTUBE 功能</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/1384/1384086.png">YouTube Premium</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/2406/2406849.png">直播</li>
+      <hr>
+    </div>
+
+    <ul class="menu-b7">
+      <li><img src="https://cdn-icons-png.flaticon.com/512/2099/2099058.png"> 設定</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/985/985382.png">檢舉紀錄</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/906/906794.png">說明</li>
+      <li><img src="https://cdn-icons-png.flaticon.com/512/633/633571.png">提供意見</li>
+      <hr>
+    </ul>
+
+    <div class="menu-b8">
+      <p style=" color: rgb(80,80,80);">簡介 媒體 版權 與我們聯絡
+        <br>創作者 廣告 開發人員
+      </p>
+    </div>
+
+    <div class="menu-b9">
+      <p style="color: rgb(80,80,80);">條款 隱私權 政策與安全性<br>
+        Youtube運作方式 測試新功能</p>
+    </div>
+
+    <div class="menu-b10">
+      <p style="color: rgb(100,100,100);font-size:14px;">© 2021 Google LLC</p>
+    </div>
+  </div>
+</body>
+
+</html>
